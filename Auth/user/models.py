@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class Users(models.Model):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     email_id = models.CharField(max_length=50)
@@ -13,7 +13,7 @@ class User(models.Model):
 
 
 class On_Sale(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
     block = models.IntegerField()
     room = models.IntegerField()
     time_period = models.IntegerField()

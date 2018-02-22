@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^$', views.UserView.as_view(), name='index'),
 
     # /user/register
-    url(r'^register/$', views.)
+    url(r'^register/$', views.Register.as_view(), name='register'),
 ]
