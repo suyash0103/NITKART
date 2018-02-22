@@ -13,6 +13,9 @@ urlpatterns = [
     # /user/register
     url(r'^register/$', views.Register.as_view(), name='register'),
 
+    # user/login
+    url(r'login/$', views.Login.as_view(), name = 'login'),
+
     # user/get_auth_token
     # url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token, name='get_auth_token'),
 ]

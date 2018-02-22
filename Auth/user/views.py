@@ -6,6 +6,7 @@ from .models import Users
 from .serializers import StockSerializer
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 # from rest_framework.authtoken.models import Token
 
 # Create your views here.
@@ -40,3 +41,18 @@ class Register(APIView):
         if user:
             return JsonResponse({'Success' : 'Successfully registered'})
         return JsonResponse({'Error' : 'Sorry, not registered'})
+
+class Login(APIView):
+
+    def post(self, request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+               return JsonResponse({'Success' : 'Successfully Logged In'})
+            else:
+                return JsonResponse({'Error' : 'Account Disabled'})
+        else:
+            return JsonResponse({'Error' : 'Username and Password dont match'})
