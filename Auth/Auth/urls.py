@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('api-token-auth/', views.obtain_auth_token),
-    url(r'^data/', include('user.urls')),
+    url(r'^user/', include('user.urls')),
 ]
 
 if settings.DEBUG:

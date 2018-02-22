@@ -6,6 +6,9 @@ from . import views
 app_name = 'user'
 
 urlpatterns = [
-    # /data/
+    # /user/
     url(r'^$', views.UserView.as_view(), name='index'),
+
+    # /user/register
+    url(r'^register/$', views.)
 ]
