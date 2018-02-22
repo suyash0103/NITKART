@@ -7,6 +7,7 @@ from .serializers import StockSerializer
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.db import transaction
 from .forms import UserForm
 # from rest_framework.authtoken.models import Token
 
@@ -24,8 +25,8 @@ class Register(APIView):
     def post(self, request):
         username = request.POST.get('username')
         password = request.POST.get('password')
-        email = request.POST.get('email_id')
-        phone = request.POST.get('phone_number')
+        email_id = request.POST.get('email_id')
+        phone_number = request.POST.get('phone_number')
 
         # Check is username already exists
         # if User.objects.filter(username=username).exists():
@@ -34,11 +35,12 @@ class Register(APIView):
         user = Users()
         user.name = username
         user.password = password
-        user.phone_number = phone
-        user.email_id = email
+        user.email_id = email_id
+        user.phone_number = phone_number
         # token, created = Token.objects.get_or_create(user=user)
         # user.token = token
         user.save()
+        # transaction.commit()
 
         # f = UserForm(request.POST)
         #
@@ -51,9 +53,9 @@ class Register(APIView):
         # f = UserForm(request.POST, instance=a)
         # f.save()
 
-        if User.objects.filter(username=username).exists():
+        if user.save():
             return JsonResponse({'Success' : 'Successfully registered'})
-        return JsonResponse({user.email_id : 'Sorry, not registered'})
+        return JsonResponse({'Error' : 'Sorry, not registered'})
 
 class Login(APIView):
 

@@ -16,7 +16,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"/>
+        android:text="Register"
+        android:id="@+id/register"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -30,6 +31,18 @@
         android:hint="password"
         android:id="@+id/password"
         android:inputType="textPassword"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="email_id"
+        android:id="@+id/email_id"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="phone_number"
+        android:id="@+id/phone_number"/>
 
     <Button
         android:layout_width="wrap_content"

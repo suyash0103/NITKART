@@ -14,7 +14,7 @@ class Users(models.Model):
 
 
 class On_Sale(models.Model):
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    # user = models.ForeignKey(Users, on_delete=models.CASCADE)
     block = models.IntegerField()
     room = models.IntegerField()
     time_period = models.IntegerField()

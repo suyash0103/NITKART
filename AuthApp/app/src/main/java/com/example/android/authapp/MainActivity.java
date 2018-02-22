@@ -22,17 +22,13 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username, password;
-    Button login;
+    EditText username, password, email_id, phone_number;
+    Button loginButton, registerButton;
     TextView response;
     RequestQueue queue;
-    String url1 = "http://127.0.0.1:8000/api-token-auth";
-    String url2 = "http://192.168.43.2:8000/api-token-auth/";
-    String url3 = "http://169.254.171.210:8000/api-token-auth";
-    String url4 = "http://192.168.99.1:8000/api-token-auth";
-    String url5 = "http://192.168.43.2:8000/admin";
-    String url6 = "http://169.254.171.210:8000/admin/";
-    String node = "http://192.168.43.2:3000/api/hotels";
+    String domain = "http://10.50.16.235";
+    String loginUrl = domain + "/user/login";
+    String registerUrl = domain + "/user/register";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +39,16 @@ public class MainActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login);
+        email_id = (EditText) findViewById(R.id.email_id);
+        phone_number = (EditText) findViewById(R.id.phone_number);
+        loginButton = (Button) findViewById(R.id.login);
+        registerButton = (Button) findViewById(R.id.register);
         response = (TextView) findViewById(R.id.response);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, node,
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, loginUrl,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String responseFinal) {
@@ -63,21 +62,48 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("tag3", error.toString());
                         response.setText(error.toString());
                     }
-                });
-// {
-//                    @Override
-//                    protected Map<String, String> getParams() {
-//                        Map<String, String> params = new HashMap<String, String>();
-//                        params.put("username", username.getText().toString());
-//                        params.put("password", password.getText().toString());
-//                        return params;
-//                    }
-//                @Override
-//                public Map<String, String> getHeaders() throws AuthFailureError {
-//                    Map<String,String> params = new HashMap<String, String>();
-//                    params.put("Content-Type","application/x-www-form-urlencoded");
-//                    return params;
-//                }};
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("username", username.getText().toString());
+                        params.put("password", password.getText().toString());
+                        return params;
+                    }
+                };
+                // Add the request to the RequestQueue.
+                queue.add(stringRequest);
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, registerUrl,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String responseFinal) {
+                                response.setText(responseFinal);
+                                Log.i("tag2", responseFinal);
+                                Toast.makeText(MainActivity.this, "GOT", Toast.LENGTH_LONG).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("tag3", error.toString());
+                        response.setText(error.toString());
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("username", username.getText().toString());
+                        params.put("password", password.getText().toString());
+                        params.put("email_id", email_id.getText().toString());
+                        params.put("phone_number", phone_number.getText().toString());
+                        return params;
+                    }
+                };
                 // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }
