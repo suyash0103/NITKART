@@ -7,6 +7,7 @@ from .serializers import StockSerializer
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .forms import UserForm
 # from rest_framework.authtoken.models import Token
 
 # Create your views here.
@@ -27,8 +28,8 @@ class Register(APIView):
         phone = request.POST.get('phone_number')
 
         # Check is username already exists
-        if User.objects.filter(username=username).exists():
-            return JsonResponse({'Error' : 'Username already exists'})
+        # if User.objects.filter(username=username).exists():
+        #     return JsonResponse({'Error' : 'Username already exists'})
 
         user = Users()
         user.name = username
@@ -38,9 +39,21 @@ class Register(APIView):
         # token, created = Token.objects.get_or_create(user=user)
         # user.token = token
         user.save()
-        if user:
+
+        # f = UserForm(request.POST)
+        #
+        # # Save a new Article object from the form's data.
+        # new_article = f.save()
+
+        # # Create a form to edit an existing Article, but use
+        # # POST data to populate the form.
+        # a = User.objects.get(pk=1)
+        # f = UserForm(request.POST, instance=a)
+        # f.save()
+
+        if User.objects.filter(username=username).exists():
             return JsonResponse({'Success' : 'Successfully registered'})
-        return JsonResponse({'Error' : 'Sorry, not registered'})
+        return JsonResponse({user.email_id : 'Sorry, not registered'})
 
 class Login(APIView):
 
