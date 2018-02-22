@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -15,10 +16,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
     Button login;
+    TextView response;
     RequestQueue queue;
 
     @Override
@@ -31,28 +36,34 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
+        response = (TextView) findViewById(R.id.response);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://10.50.18.244:8000/api-token-auth",
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.50.18.244:8000/api-token-auth",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String responseFinal) {
-                                // Display the response string.
-//                        response.setText(responseFinal);
+                                response.setText(responseFinal);
                                 Log.i("tag2", responseFinal);
                                 Toast.makeText(MainActivity.this, responseFinal, Toast.LENGTH_LONG).show();
-//                                response.setText(CSRFToken);
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        response.setText("That didn't work!");
                         Log.e("tag3", error.toString());
-                        Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                        response.setText(error.toString());
                     }
-                });
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("username", username.getText().toString());
+                        params.put("password", password.getText().toString());
+                        return params;
+                    }
+                };
                 // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }
