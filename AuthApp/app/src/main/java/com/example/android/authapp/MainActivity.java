@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     TextView response;
     RequestQueue queue;
     String domain = "http://10.50.16.235";
-    String loginUrl = domain + "/user/login";
-    String registerUrl = domain + "/user/register";
+    String loginUrl = domain + "/user/login/";
+    String registerUrl = domain + "/user/register/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
