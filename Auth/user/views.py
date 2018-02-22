@@ -6,6 +6,7 @@ from .models import Users
 from .serializers import StockSerializer
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+# from rest_framework.authtoken.models import Token
 
 # Create your views here.
 
@@ -33,6 +34,8 @@ class Register(APIView):
         user.password = password
         user.phone_number = phone
         user.email_id = email
+        # token, created = Token.objects.get_or_create(user=user)
+        # user.token = token
         user.save()
         if user:
             return JsonResponse({'Success' : 'Successfully registered'})

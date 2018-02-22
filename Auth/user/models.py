@@ -7,6 +7,7 @@ class Users(models.Model):
     phone_number = models.IntegerField()
     email_id = models.CharField(max_length=50)
     password = models.CharField(max_length=250)
+    # token = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name
