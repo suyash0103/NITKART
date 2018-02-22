@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     TextView response;
     RequestQueue queue;
+    String url1 = "http://127.0.0.1:8000/api-token-auth";
+    String url2 = "http://192.168.43.2:8000/api-token-auth/";
+    String url3 = "http://169.254.171.210:8000/api-token-auth";
+    String url4 = "http://192.168.99.1:8000/api-token-auth";
+    String url5 = "http://192.168.43.2:8000/admin";
+    String url6 = "http://169.254.171.210:8000/admin/";
+    String node = "http://192.168.43.2:3000/api/hotels";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.50.18.244:8000/api-token-auth",
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, node,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String responseFinal) {
                                 response.setText(responseFinal);
                                 Log.i("tag2", responseFinal);
-                                Toast.makeText(MainActivity.this, responseFinal, Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "GOT", Toast.LENGTH_LONG).show();
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -55,15 +63,21 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("tag3", error.toString());
                         response.setText(error.toString());
                     }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() {
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("username", username.getText().toString());
-                        params.put("password", password.getText().toString());
-                        return params;
-                    }
-                };
+                });
+// {
+//                    @Override
+//                    protected Map<String, String> getParams() {
+//                        Map<String, String> params = new HashMap<String, String>();
+//                        params.put("username", username.getText().toString());
+//                        params.put("password", password.getText().toString());
+//                        return params;
+//                    }
+//                @Override
+//                public Map<String, String> getHeaders() throws AuthFailureError {
+//                    Map<String,String> params = new HashMap<String, String>();
+//                    params.put("Content-Type","application/x-www-form-urlencoded");
+//                    return params;
+//                }};
                 // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }
