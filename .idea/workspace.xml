@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db12b3a5-7c4f-4583-96b8-5544136bf2dc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/db.sqlite3" afterPath="$PROJECT_DIR$/NITKART_Backend/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/app/build.gradle" afterPath="$PROJECT_DIR$/App/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/app/src/main/java/com/example/android/nitkart/LoginActivity.java" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/example/android/nitkart/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py" afterPath="$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/user/models.py" afterPath="$PROJECT_DIR$/NITKART_Backend/user/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/user/urls.py" afterPath="$PROJECT_DIR$/NITKART_Backend/user/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/user/views.py" afterPath="$PROJECT_DIR$/NITKART_Backend/user/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
@@ -45,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -211,16 +203,6 @@
     <entry file="file://$PROJECT_DIR$/Auth/user/serializers.py" />
     <entry file="file://$PROJECT_DIR$/Auth/user/admin.py" />
     <entry file="file://$PROJECT_DIR$/Auth/user/views.py" />
-    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -253,6 +235,16 @@
           <caret line="68" column="51" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
