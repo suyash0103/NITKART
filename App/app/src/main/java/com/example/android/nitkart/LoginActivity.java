@@ -233,32 +233,32 @@ public class LoginActivity extends AppCompatActivity {
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 //            Toast.makeText(LoginActivity.this, account.getEmail(), Toast.LENGTH_SHORT).show();
-//            StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl,
-//                    new Response.Listener<String>() {
-//                        @Override
-//                        public void onResponse(String response) {
-//                            Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
-//                            Log.d("Response", response);
-//                        }
-//                    },
-//                    new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-//                            Log.d("Error.Response", error.toString());
-//                        }
-//                    }
-//            ) {
-//                @Override
-//                protected Map<String, String> getParams() {
-//                    Map<String, String> params = new HashMap<String, String>();
-//                    params.put("email_id", gso);
-//                    return params;
-//                }
-//            };
-//            SingletonRequestQueue.getInstance(LoginActivity.this).addToRequestQueue(stringRequest);
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
+                            Log.d("Response", response);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                            Log.d("Error.Response", error.toString());
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("email_id", account.getEmail());
+                    return params;
+                }
+            };
+            SingletonRequestQueue.getInstance(LoginActivity.this).addToRequestQueue(stringRequest);
             updateUI(account);
         } catch (ApiException e) {
             Log.w("Coudldn't sign in", "signInResult:failed code=" + e.getStatusCode());
