@@ -1,5 +1,6 @@
 package com.example.android.nitkart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -14,16 +15,24 @@ import com.google.android.gms.tasks.Task;
 public class AdsActivity extends AppCompatActivity {
 
     Button signOut;
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ads);
 
+        mProgress = new ProgressDialog(AdsActivity.this);
+        mProgress.setTitle("Logging Out...");
+        mProgress.setMessage("Please wait...");
+        mProgress.setCancelable(false);
+        mProgress.setIndeterminate(true);
+
         signOut = (Button) findViewById(R.id.sign_out);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mProgress.show();
                 signOut();
             }
         });
