@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     String loginUrl = domain + "/user/login/";
     String registerUrl = domain +  "/user/register/";
     String testUrl = domain + "/user";
-    String googleEmailUrl = domain + "/user/email_id";
+    String googleEmailUrl = domain + "/user/email_id/";
     String myPreferences = "myPreferences";
     String emailId = "email_id";
     String userName = "username";
@@ -234,7 +234,7 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-//            Toast.makeText(LoginActivity.this, account.getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Signed in as " + account.getEmail(), Toast.LENGTH_SHORT).show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, googleEmailUrl,
                     new Response.Listener<String>() {
                         @Override
