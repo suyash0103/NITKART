@@ -13,10 +13,11 @@ urlpatterns = [
     # /user/register/
     url(r'^register/$', views.Register.as_view(), name='register'),
 
-    # user/login/
+    # /user/login/
     url(r'^login/$', views.Login.as_view(), name = 'login'),
 
-
+    # user/email_id/
+    url(r'^email_id/$', views.Email.as_view(), name='email_id'),
 
     # user/get_auth_token
     # url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token, name='get_auth_token'),
