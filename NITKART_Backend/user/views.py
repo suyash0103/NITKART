@@ -67,4 +67,7 @@ class Email(APIView):
             user = Users.objects.get(email_id = email_id)
             if user:
                 return Response({'Check Successfull': 'Email Id exists'}, status.HTTP_200_OK)
-        
+        except:
+            user = Users(email_id = email_id)
+            user.save()
+            return Response({'Success': 'User Created'}, status.HTTP_201_CREATED)
