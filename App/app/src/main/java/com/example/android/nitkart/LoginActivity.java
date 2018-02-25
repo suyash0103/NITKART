@@ -234,7 +234,7 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Toast.makeText(LoginActivity.this, account.getEmail(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(LoginActivity.this, account.getEmail(), Toast.LENGTH_SHORT).show();
 //            StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl,
 //                    new Response.Listener<String>() {
 //                        @Override
