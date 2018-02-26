@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Users
-from .serializers import UserSerializer
+from .models import Users, Products
+from .serializers import UserSerializer, ProductSerializer
 from django.http import JsonResponse
 from rest_framework.response import Response
 
@@ -14,8 +14,8 @@ from rest_framework.response import Response
 class UserView(APIView):
 
     def get(self, request):
-        items = Users.objects.all()
-        serializer = UserSerializer(items, many=True)
+        items = Products.objects.all()
+        serializer = ProductSerializer(items, many=True)
         return Response(serializer.data)
 
 class Register(APIView):
@@ -81,13 +81,8 @@ class Email(APIView):
             user.save()
             return Response({'Success': 'User Created' + user.email_id}, status.HTTP_201_CREATED)
 
-class Profile(APIView):
 
-    def post(self, request):
-        email_id = request.data['email_id']
 
-        try:
-            user = Users.objects.get(email_id = email_id)
-            return Response({'Found' : 'Found'})
-        except Users.DoesNotExist:
-            return Response({'Not Found': 'Not Found'})
+# class Home(APIView):
+#
+#     def get(self, request):
