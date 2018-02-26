@@ -36,7 +36,8 @@ class Register(APIView):
                 user.username = username
                 user.password = password
                 user.phone_number = phone_number
-                return Response({'Error' : 'User already exists'})
+                user.save()
+                return Response({'Success' : 'Account linked with ' + user.email_id + '. Username set as ' + user.username + '. Password set as ' + user.password})
         elif Users.objects.filter(phone_number=phone_number).exists():
             return Response({'Error': 'Phone number already exists'})
 
@@ -74,11 +75,11 @@ class Email(APIView):
         try:
             user = Users.objects.get(email_id = email_id)
             if user:
-                return Response({'Check Successfull': 'Email Id exists'}, status.HTTP_200_OK)
+                return Response({'Check Successfull': 'Email Id exists' + user.email_id}, status.HTTP_200_OK)
         except Users.DoesNotExist:
             user = Users(email_id = email_id)
             user.save()
-            return Response({'Success': 'User Created'}, status.HTTP_201_CREATED)
+            return Response({'Success': 'User Created' + user.email_id}, status.HTTP_201_CREATED)
 
 class Profile(APIView):
 
