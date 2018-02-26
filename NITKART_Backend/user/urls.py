@@ -25,6 +25,9 @@ urlpatterns = [
     # user/home/
     # url(r'^home/$', views.Home.as_view(), name='home'),
 
+    # /user/test/
+    url(r'test/$', views.Imageget.as_view(), name = 'image'),
+
     # user/get_auth_token
     # url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token, name='get_auth_token'),
 ]

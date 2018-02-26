@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Users, Products
 from .serializers import UserSerializer, ProductSerializer
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from rest_framework.response import Response
+from PIL import Image, ImageDraw
 
 # Create your views here.
 
@@ -96,6 +97,29 @@ class Profile(APIView):
             return Response({'Success' : strF})
         except Users.DoesNotExist:
             return Response({'Not Found': 'Not Found'})
+
+class Imageget(APIView):
+
+    def get(self, request):
+        size = (100, 50)  # size of the image to create
+        im = Image.new('RGB', size)  # create the image
+        draw = ImageDraw.Draw(im)  # create a drawing object that is
+        # used to draw on the new image
+        red = (255, 0, 0)  # color of our text
+        text_pos = (10, 10)  # top-left position of our text
+        text = "Hello World!"  # text to draw
+        # Now, we'll do the drawing:
+        draw.text(text_pos, text, fill=red)
+
+        del draw  # I'm done drawing so I don't need this anymore
+
+        # We need an HttpResponse object with the correct mimetype
+        response = HttpResponse(content_type="image/jpeg")
+        # now, we tell the image to save as a PNG to the
+        # provided file-like object
+        im.save(response, 'JPEG')
+
+        return response  # and we're done!
 
 # class Home(APIView):
 #
