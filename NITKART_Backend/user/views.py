@@ -22,13 +22,21 @@ class Register(APIView):
 
     def post(self, request):
         username = request.data['username']
+        password = request.data['password']
         email_id = request.data['email_id']
         phone_number = request.data['phone_number']
 
         if Users.objects.filter(username=username).exists():
             return Response({'Error' : 'Username already exists'})
         elif Users.objects.filter(email_id=email_id).exists():
-            return Response({'Error': 'Email id already exists'})
+            user = Users.objects.get(email_id=email_id)
+            if user.username:
+                return Response({'Error': 'User already exists'})
+            else:
+                user.username = username
+                user.password = password
+                user.phone_number = phone_number
+                return Response({'Error' : 'User already exists'})
         elif Users.objects.filter(phone_number=phone_number).exists():
             return Response({'Error': 'Phone number already exists'})
 
@@ -51,7 +59,7 @@ class Login(APIView):
             user = Users.objects.get(username = username)
             if user and user.password == password:
                 print("USER MIL GAYA!")
-                return Response({'Success': 'Successfully Logged In'}, status.HTTP_200_OK)
+                return Response({'Success': 'Logged In as ' + user.email_id}, status.HTTP_200_OK)
             elif user and user.password != password:
                 return Response({'Error' : 'Username and Password dont match'})
         except Users.DoesNotExist:
