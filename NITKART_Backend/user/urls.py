@@ -19,6 +19,9 @@ urlpatterns = [
     # user/email_id/
     url(r'^email_id/$', views.Email.as_view(), name='email_id'),
 
+    # user/profile/
+    url(r'^profile/$', views.Profile.as_view(), name='profile'),
+
     # user/get_auth_token
     # url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token, name='get_auth_token'),
 ]

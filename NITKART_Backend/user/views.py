@@ -75,7 +75,18 @@ class Email(APIView):
             user = Users.objects.get(email_id = email_id)
             if user:
                 return Response({'Check Successfull': 'Email Id exists'}, status.HTTP_200_OK)
-        except:
+        except Users.DoesNotExist:
             user = Users(email_id = email_id)
             user.save()
             return Response({'Success': 'User Created'}, status.HTTP_201_CREATED)
+
+class Profile(APIView):
+
+    def post(self, request):
+        email_id = request.data['email_id']
+
+        try:
+            user = Users.objects.get(email_id = email_id)
+            return Response({'Found' : 'Found'})
+        except Users.DoesNotExist:
+            return Response({'Not Found': 'Not Found'})
