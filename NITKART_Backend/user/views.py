@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Users, Products
-from .serializers import UserSerializer, ProductSerializer
+from .models import Users, Products, Images
+from .serializers import UserSerializer, ProductSerializer, ImageSerializer
 from django.http import JsonResponse, HttpResponse
 from rest_framework.response import Response
 from PIL import Image, ImageDraw
@@ -121,6 +121,21 @@ class Imageget(APIView):
 
         return response  # and we're done!
 
+    def post(self, request):
+        # imagee = Images()
+        # imagee.image = request.POST.get('image-prod')
+        # imagee.save()
+        # if imagee.save():
+        #     return Response({'success' : 'saved'})
+        # return Response({'error' : 'not saved'})
+
+        serializer = ImageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            print(serializer)
+            if serializer.save():
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 # class Home(APIView):
 #
 #     def get(self, request):

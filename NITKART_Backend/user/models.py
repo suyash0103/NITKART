@@ -18,3 +18,6 @@ class Products(models.Model):
     seller_block = models.IntegerField()
     seller_room = models.IntegerField()
     time_period = models.IntegerField()
+
+class Images(models.Model):
+    image = models.FileField()
