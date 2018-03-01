@@ -19,6 +19,8 @@ class UserView(APIView):
         serializer = ProductSerializer(items, many=True)
         return Response(serializer.data)
 
+    
+
 class Register(APIView):
 
     def post(self, request):
@@ -122,13 +124,6 @@ class Imageget(APIView):
         return response  # and we're done!
 
     def post(self, request):
-        # imagee = Images()
-        # imagee.image = request.POST.get('image-prod')
-        # imagee.save()
-        # if imagee.save():
-        #     return Response({'success' : 'saved'})
-        # return Response({'error' : 'not saved'})
-
         serializer = ImageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -136,6 +131,4 @@ class Imageget(APIView):
             if serializer.is_valid():
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# class Home(APIView):
-#
-#     def get(self, request):
+

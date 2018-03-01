@@ -18,6 +18,7 @@ class Products(models.Model):
     seller_block = models.IntegerField()
     seller_room = models.IntegerField()
     time_period = models.IntegerField()
+    image = models.ImageField(null=True, blank=True)
 
 class Images(models.Model):
     image = models.FileField()
