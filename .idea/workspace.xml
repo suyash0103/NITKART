@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db12b3a5-7c4f-4583-96b8-5544136bf2dc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/IMG_20171216_181825.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0002_auto_20180224_0139.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0003_auto_20180225_1713.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0004_auto_20180225_1715.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0005_auto_20180226_0039.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0006_auto_20180226_0143.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0007_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0008_auto_20180227_1049.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0009_auto_20180227_1103.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/0002_auto_20180301_1426.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NITKART_Backend/user/migrations/__init__.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/db.sqlite3" afterPath="$PROJECT_DIR$/NITKART_Backend/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/.idea/workspace.xml" afterPath="$PROJECT_DIR$/NITKART_Backend/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py" afterPath="$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/NITKART/urls.py" afterPath="$PROJECT_DIR$/NITKART_Backend/NITKART/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/user/models.py" afterPath="$PROJECT_DIR$/NITKART_Backend/user/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NITKART_Backend/user/views.py" afterPath="$PROJECT_DIR$/NITKART_Backend/user/views.py" />
     </list>
@@ -30,8 +25,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+            <state relative-caret-position="383">
+              <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -39,23 +34,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state relative-caret-position="737">
+              <caret line="138" column="78" lean-forward="true" selection-start-line="138" selection-start-column="78" selection-end-line="138" selection-end-column="78" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            <state relative-caret-position="450">
+              <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -76,28 +71,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/apps.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NITKART_Backend/NITKART/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="2204">
+              <caret line="128" column="39" lean-forward="false" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -130,9 +105,9 @@
         <option value="$PROJECT_DIR$/NITKART_Backend/NITKART/urls.py" />
         <option value="$PROJECT_DIR$/NITKART_Backend/user/urls.py" />
         <option value="$PROJECT_DIR$/NITKART_Backend/user/serializers.py" />
+        <option value="$PROJECT_DIR$/NITKART_Backend/user/views.py" />
         <option value="$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py" />
         <option value="$PROJECT_DIR$/NITKART_Backend/user/models.py" />
-        <option value="$PROJECT_DIR$/NITKART_Backend/user/views.py" />
       </list>
     </option>
   </component>
@@ -176,13 +151,6 @@
               <item name="NITKART_Backend" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="NITKART_MY" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NITKART_MY" type="462c0819:PsiDirectoryNode" />
-              <item name="NITKART_Backend" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -191,7 +159,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NITKART" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,7 +287,7 @@
         <state relative-caret-position="3375">
           <caret line="135" column="37" lean-forward="false" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -373,7 +341,7 @@
         <state relative-caret-position="3200">
           <caret line="135" column="33" lean-forward="true" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="33" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -419,7 +387,7 @@
         <state relative-caret-position="2925">
           <caret line="117" column="56" lean-forward="true" selection-start-line="117" selection-start-column="56" selection-end-line="117" selection-end-column="56" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -465,7 +433,7 @@
         <state relative-caret-position="2425">
           <caret line="97" column="55" lean-forward="true" selection-start-line="97" selection-start-column="55" selection-end-line="97" selection-end-column="55" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,7 +479,7 @@
         <state relative-caret-position="700">
           <caret line="28" column="60" lean-forward="true" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -557,7 +525,7 @@
         <state relative-caret-position="1575">
           <caret line="69" column="15" lean-forward="false" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="15" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -574,6 +542,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -584,26 +570,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NITKART_Backend/NITKART/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state relative-caret-position="2204">
+          <caret line="128" column="39" lean-forward="false" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/urls.py">
+    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        <state relative-caret-position="737">
+          <caret line="138" column="78" lean-forward="true" selection-start-line="138" selection-start-column="78" selection-end-line="138" selection-end-column="78" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -612,19 +590,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        <state relative-caret-position="450">
+          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NITKART_Backend/user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -1,11 +1,12 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from PIL import Image, ImageDraw
+from django.http import JsonResponse, HttpResponse
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import Users, Products, Images
 from .serializers import UserSerializer, ProductSerializer, ImageSerializer
-from django.http import JsonResponse, HttpResponse
-from rest_framework.response import Response
-from PIL import Image, ImageDraw
+
 
 # Create your views here.
 
@@ -19,7 +20,6 @@ class UserView(APIView):
         serializer = ProductSerializer(items, many=True)
         return Response(serializer.data)
 
-    
 
 class Register(APIView):
 
@@ -30,7 +30,7 @@ class Register(APIView):
         phone_number = request.data['phone_number']
 
         if Users.objects.filter(username=username).exists():
-            return Response({'Error' : 'Username already exists'})
+            return Response({'Error': 'Username already exists'})
         elif Users.objects.filter(email_id=email_id).exists():
             user = Users.objects.get(email_id=email_id)
             if user.username:
@@ -40,7 +40,8 @@ class Register(APIView):
                 user.password = password
                 user.phone_number = phone_number
                 user.save()
-                return Response({'Success' : 'Account linked with ' + user.email_id + '. Username set as ' + user.username + '. Password set as ' + user.password})
+                return Response({
+                    'Success': 'Account linked with ' + user.email_id + '. Username set as ' + user.username + '. Password set as ' + user.password})
         elif Users.objects.filter(phone_number=phone_number).exists():
             return Response({'Error': 'Phone number already exists'})
 
@@ -52,23 +53,25 @@ class Register(APIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
+
 class Login(APIView):
 
     def post(self, request):
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print (username, password)
+        print(username, password)
 
         try:
-            user = Users.objects.get(username = username)
+            user = Users.objects.get(username=username)
             if user and user.password == password:
                 print("USER MIL GAYA!")
                 return Response({'Success': 'Logged In as ' + user.email_id}, status.HTTP_200_OK)
             elif user and user.password != password:
-                return Response({'Error' : 'Username and Password dont match'})
+                return Response({'Error': 'Username and Password dont match'})
         except Users.DoesNotExist:
             return Response({'Error': 'No such user exists, Register first'})
         return JsonResponse({'Error': 'Account Disabled'})
+
 
 class Email(APIView):
 
@@ -76,13 +79,14 @@ class Email(APIView):
         email_id = request.POST.get('email_id')
 
         try:
-            user = Users.objects.get(email_id = email_id)
+            user = Users.objects.get(email_id=email_id)
             if user:
                 return Response({'Check Successfull': 'Email Id exists' + user.email_id}, status.HTTP_200_OK)
         except Users.DoesNotExist:
-            user = Users(email_id = email_id)
+            user = Users(email_id=email_id)
             user.save()
             return Response({'Success': 'User Created' + user.email_id}, status.HTTP_201_CREATED)
+
 
 class Profile(APIView):
 
@@ -91,14 +95,16 @@ class Profile(APIView):
 
         try:
             strF = ""
-            user = Users.objects.get(email_id = email_id)
-            for product in Products.objects.filter(seller = user):
-                strF = strF + " name : " + product.seller_name + " email : " + product.seller_email + " time period : " + str(product.time_period)
+            user = Users.objects.get(email_id=email_id)
+            for product in Products.objects.filter(seller=user):
+                strF = strF + " name : " + product.seller_name + " email : " + product.seller_email + " time period : " + str(
+                    product.time_period)
             if strF == "":
-                return Response({'Error' : 'No Ads Posted'})
-            return Response({'Success' : strF})
+                return Response({'Error': 'No Ads Posted'})
+            return Response({'Success': strF})
         except Users.DoesNotExist:
             return Response({'Not Found': 'Not Found'})
+
 
 class Imageget(APIView):
 
@@ -124,6 +130,13 @@ class Imageget(APIView):
         return response  # and we're done!
 
     def post(self, request):
+        # imagee = Images()
+        # imagee.image = request.POST.get('image-prod')
+        # imagee.save()
+        # if imagee.save():
+        #     return Response({'success' : 'saved'})
+        # return Response({'error' : 'not saved'})
+
         serializer = ImageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -131,4 +144,6 @@ class Imageget(APIView):
             if serializer.is_valid():
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+# class Home(APIView):
+#
+#     def get(self, request):

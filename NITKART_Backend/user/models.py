@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Users(models.Model):
     username = models.CharField(max_length=100, unique=True, null=True, blank=True)
     password = models.CharField(max_length=250, null=True, blank=True)
@@ -18,7 +19,7 @@ class Products(models.Model):
     seller_block = models.IntegerField()
     seller_room = models.IntegerField()
     time_period = models.IntegerField()
-    image = models.ImageField(null=True, blank=True)
+
 
 class Images(models.Model):
     image = models.FileField()
