@@ -20,9 +20,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -49,6 +61,7 @@ public class StoreFragment extends Fragment {
     private RecyclerView recyclerView;
     private AlbumsAdapter adapter;
     private List<Album> albumList;
+    Context context;
 
 //    final String[] userAds = {"apple", "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india",
 //            "apple", "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india", "apple",
@@ -84,22 +97,15 @@ public class StoreFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        context = getContext();
 
         View view = inflater.inflate(R.layout.fragment_store, container, false);
-        // ListView settings
-//        listView = view.findViewById(R.id.listView);
-//        StoreFragment.CustomAdapter customAdapter = new StoreFragment.CustomAdapter();
-//        listView.setAdapter(customAdapter);
-
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
@@ -112,17 +118,24 @@ public class StoreFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://10.50.23.71:8000/user/",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String responseFinal) {
+                        Log.v("Stores", responseFinal);
+                        Toast.makeText(context, responseFinal, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("tag4", error.toString());
+                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        SingletonRequestQueue.getInstance(context).addToRequestQueue(stringRequest);
         prepareAlbums();
-
-
         return view;
     }
-
-
-    private void strikeThroughText(TextView price) {
-        price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-    }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -137,11 +150,7 @@ public class StoreFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
             Log.w("11111111111111111111", "sasasasasasa");
-        }//////////////////
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+        }
     }
 
     @Override

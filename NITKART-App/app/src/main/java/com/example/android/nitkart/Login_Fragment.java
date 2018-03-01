@@ -106,8 +106,6 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             @Override
             public void onClick(View v) {
                 signIn();
-
-
             }
         });
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
