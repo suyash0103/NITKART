@@ -118,7 +118,7 @@ public class StoreFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://10.50.23.71:8000/user/",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://10.50.18.62:8000/user/",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String responseFinal) {
@@ -149,7 +149,6 @@ public class StoreFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-            Log.w("11111111111111111111", "sasasasasasa");
         }
     }
 

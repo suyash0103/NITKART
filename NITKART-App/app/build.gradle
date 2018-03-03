@@ -58,6 +58,7 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.volley:volley:1.0.0'
 
+    compile 'com.google.code.gson:gson:2.6.1'
 }
 
 
@@ -71,13 +72,4 @@ configurations.all {
         }
     }
 }
-
-
-
-
-
-
-
-
-
 apply plugin: 'com.google.gms.google-services'
