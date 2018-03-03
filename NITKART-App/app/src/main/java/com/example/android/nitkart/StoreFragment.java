@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,9 +27,12 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -63,8 +67,10 @@ public class StoreFragment extends Fragment {
     private List<Album> albumList;
     Context context;
 
+    ArrayList<String> images;
+
 //    final String[] userAds = {"apple", "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india",
-//            "apple", "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india", "apple",
+//            "apple", "banana", "cat", "dogc", "egg", "fish", "gun", "hello", "india", "apple",
 //            "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india"};
 
 
@@ -109,6 +115,7 @@ public class StoreFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
+        images = new ArrayList<>();
         adapter = new AlbumsAdapter(getContext(), albumList);
 
 //        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -118,21 +125,38 @@ public class StoreFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://10.50.18.62:8000/user/",
-                new Response.Listener<String>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                "http://10.50.18.62:8000/user/",
+                null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(String responseFinal) {
-                        Log.v("Stores", responseFinal);
-                        Toast.makeText(context, responseFinal, Toast.LENGTH_SHORT).show();
+                    public void onResponse(JSONArray response) {
+                        // Do something with response
+                        // Process the JSON
+                        try{
+                            // Loop through the array elements
+                            for(int i=0;i<response.length();i++){
+                                // Get current json object
+                                JSONObject student = response.getJSONObject(i);
+                                String url = student.getString("image");
+                                images.add(url);
+
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("tag4", error.toString());
-                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        SingletonRequestQueue.getInstance(context).addToRequestQueue(stringRequest);
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        // Do something when error occurred
+
+                    }
+                }
+        );
+        SingletonRequestQueue.getInstance(context).addToRequestQueue(jsonArrayRequest);
         prepareAlbums();
         return view;
     }
@@ -190,35 +214,35 @@ public class StoreFragment extends Fragment {
                 R.drawable.album10,
                 R.drawable.album11};
 
-        Album a = new Album("True Romance", 13, covers[0]);
+        Album a = new Album("True Romance", 13, images.get(0));
         albumList.add(a);
 
-        a = new Album("Xscpae", 8, covers[1]);
+        a = new Album("Xscpae", 8,images.get(1));
         albumList.add(a);
 
-        a = new Album("Maroon 5", 11, covers[2]);
+        a = new Album("Maroon 5", 11, images.get(2));
         albumList.add(a);
 
-        a = new Album("Born to Die", 12, covers[3]);
+        a = new Album("Born to Die", 12, images.get(3));
         albumList.add(a);
 
-        a = new Album("Honeymoon", 14, covers[4]);
+        a = new Album("Honeymoon", 14, images.get(4));
         albumList.add(a);
-
-        a = new Album("I Need a Doctor", 1, covers[5]);
-        albumList.add(a);
-
-        a = new Album("Loud", 11, covers[6]);
-        albumList.add(a);
-
-        a = new Album("Legend", 14, covers[7]);
-        albumList.add(a);
-
-        a = new Album("Hello", 11, covers[8]);
-        albumList.add(a);
-
-        a = new Album("Greatest Hits", 17, covers[9]);
-        albumList.add(a);
+//
+//        a = new Album("I Need a Doctor", 1, images.get(0));
+//        albumList.add(a);
+//
+//        a = new Album("Loud", 11, images.get(0));
+//        albumList.add(a);
+//
+//        a = new Album("Legend", 14, images.get(0));
+//        albumList.add(a);
+//
+//        a = new Album("Hello", 11, covers[8]);
+//        albumList.add(a);
+//
+//        a = new Album("Greatest Hits", 17, covers[9]);
+//        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }
