@@ -200,20 +200,26 @@ public class StoreFragment extends Fragment {
      */
     private void prepareAlbums() {
 
-        Album a = new Album("True Romance", 13, images.get(0));
-        albumList.add(a);
+        for(int i = 0; i < images.size(); i++)
+        {
+            Album a = new Album("name", 1, images.get(i));
+            albumList.add(a);
+        }
 
-        a = new Album("Xscpae", 8,images.get(1));
-        albumList.add(a);
-
-        a = new Album("Maroon 5", 11, images.get(2));
-        albumList.add(a);
-
-        a = new Album("Born to Die", 12, images.get(3));
-        albumList.add(a);
-
-        a = new Album("Honeymoon", 14, images.get(4));
-        albumList.add(a);
+//        Album a = new Album("True Romance", 13, images.get(0));
+//        albumList.add(a);
+//
+//        a = new Album("Xscpae", 8,images.get(1));
+//        albumList.add(a);
+//
+//        a = new Album("Maroon 5", 11, images.get(2));
+//        albumList.add(a);
+//
+//        a = new Album("Born to Die", 12, images.get(3));
+//        albumList.add(a);
+//
+//        a = new Album("Honeymoon", 14, images.get(4));
+//        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }
