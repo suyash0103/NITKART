@@ -49,7 +49,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 
         // loading album cover using Glide library
         // Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
-        String url = "http://10.50.17.92:8000/user" + album.getUrl();
+        String url = "http://10.50.17.92:8000" + album.getUrl();
         Log.v("This is the URL:", url);
         Picasso.with(mContext).load(url).into(thumbnail);
     }

@@ -16,8 +16,8 @@ from .serializers import UserSerializer, ProductSerializer, ImageSerializer
 class UserView(APIView):
 
     def get(self, request):
-        items = Products.objects.all()
-        serializer = ProductSerializer(items, many=True)
+        items = Images.objects.all()
+        serializer = ImageSerializer(items, many=True)
         return Response(serializer.data)
 
 
