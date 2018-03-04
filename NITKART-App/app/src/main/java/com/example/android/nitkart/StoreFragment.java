@@ -151,8 +151,7 @@ public class StoreFragment extends Fragment {
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
-                        // Do something when error occurred
-
+                        Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
         );
