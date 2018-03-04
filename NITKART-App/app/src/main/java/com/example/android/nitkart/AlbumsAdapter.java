@@ -50,14 +50,6 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
     }
 
-    /**
-     * Showing popup menu when tapping on 3 dots
-     */
-
-    /**
-     * Click listener for popup menu items
-     */
-
     @Override
     public int getItemCount() {
         return albumList.size();
