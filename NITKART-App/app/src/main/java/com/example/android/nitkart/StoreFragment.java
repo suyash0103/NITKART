@@ -132,8 +132,6 @@ public class StoreFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        // Do something with response
-                        // Process the JSON
                         try{
                             // Loop through the array elements
                             for(int i=0;i<response.length();i++){
@@ -141,9 +139,11 @@ public class StoreFragment extends Fragment {
                                 JSONObject student = response.getJSONObject(i);
                                 String url = student.getString("image");
                                 images.add(url);
-
                             }
-                        }catch (JSONException e){
+                            prepareAlbums();
+                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                        }
+                        catch (JSONException e){
                             e.printStackTrace();
                         }
                     }
@@ -157,7 +157,6 @@ public class StoreFragment extends Fragment {
                 }
         );
         SingletonRequestQueue.getInstance(context).addToRequestQueue(jsonArrayRequest);
-        prepareAlbums();
         return view;
     }
 
