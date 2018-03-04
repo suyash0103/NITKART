@@ -127,7 +127,7 @@ public class StoreFragment extends Fragment {
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                "http://10.50.18.62:8000/user/",
+                "http://10.50.17.92:8000/user/",
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override

@@ -2,6 +2,7 @@ package com.example.android.nitkart;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -16,10 +18,10 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 
     private Context mContext;
     private List<Album> albumList;
+    public ImageView thumbnail;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, count;
-        public ImageView thumbnail, overflow;
+        public TextView title;
 
         public MyViewHolder(View view) {
             super(view);
@@ -39,6 +41,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.album_card, parent, false);
 
+
+
         return new MyViewHolder(itemView);
     }
 
@@ -47,7 +51,10 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         Album album = albumList.get(position);
 
         // loading album cover using Glide library
-        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+        // Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+        String url = "http://10.50.17.92:8000/user" + album.getUrl();
+        Log.v("This is the URL:", url);
+        Picasso.with(mContext).load(url).into(thumbnail);
     }
 
     @Override
