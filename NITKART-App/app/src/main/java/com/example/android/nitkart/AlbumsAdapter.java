@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -47,8 +45,6 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Album album = albumList.get(position);
 
-        // loading album cover using Glide library
-        // Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
         String url = "http://10.50.17.92:8000" + album.getUrl();
         Log.v("This is the URL:", url);
         Picasso.with(mContext).load(url).into(thumbnail);
