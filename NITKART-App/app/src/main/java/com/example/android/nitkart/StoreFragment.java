@@ -200,18 +200,6 @@ public class StoreFragment extends Fragment {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.album1,
-                R.drawable.album2,
-                R.drawable.album3,
-                R.drawable.album4,
-                R.drawable.album5,
-                R.drawable.album6,
-                R.drawable.album7,
-                R.drawable.album8,
-                R.drawable.album9,
-                R.drawable.album10,
-                R.drawable.album11};
 
         Album a = new Album("True Romance", 13, images.get(0));
         albumList.add(a);
@@ -227,21 +215,6 @@ public class StoreFragment extends Fragment {
 
         a = new Album("Honeymoon", 14, images.get(4));
         albumList.add(a);
-//
-//        a = new Album("I Need a Doctor", 1, images.get(0));
-//        albumList.add(a);
-//
-//        a = new Album("Loud", 11, images.get(0));
-//        albumList.add(a);
-//
-//        a = new Album("Legend", 14, images.get(0));
-//        albumList.add(a);
-//
-//        a = new Album("Hello", 11, covers[8]);
-//        albumList.add(a);
-//
-//        a = new Album("Greatest Hits", 17, covers[9]);
-//        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }
