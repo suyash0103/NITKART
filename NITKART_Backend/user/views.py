@@ -20,6 +20,11 @@ class UserView(APIView):
         serializer = ImageSerializer(items, many=True)
         return Response(serializer.data)
 
+    def delete(self, request):
+        Images.objects.filter(id=1).delete()
+        Images.objects.filter(id=2).delete()
+        Images.objects.filter(id=3).delete()
+        return Response({'suc' : 'succ'})
 
 class Register(APIView):
 
