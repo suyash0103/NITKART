@@ -172,7 +172,10 @@ class GetProducts(APIView):
     def post(self, request):
         seller_email = request.POST.get('seller_email')
         products = Products.objects.filter(seller_email = seller_email)
-        resp = ""
-        for product in products:
-            resp += '/media/' + str(product.image) + ', '
-        return Response({'Success' : resp})
+        print (products)
+        if products:
+            urlList = []
+            for product in products:
+                urlList.append(str(product.image))
+            return Response(urlList)
+        return Response({'Error' : 'No Ads Posted'})
