@@ -52,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StoreFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/StoreFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
@@ -64,6 +64,16 @@
                 <element signature="e#5222#5484#0" expanded="true" />
                 <element signature="e#5483#5484#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Imageutils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Imageutils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="616" column="76" lean-forward="false" selection-start-line="616" selection-start-column="76" selection-end-line="616" selection-end-column="76" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,6 +94,7 @@
       <find>frame_container</find>
       <find>createAccount</find>
       <find>imagepicker</find>
+      <find>compress</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1862,6 +1873,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/AlbumsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/StoreFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Imageutils.java" />
       </list>
     </option>
   </component>
@@ -2057,7 +2069,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138008" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321826355" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2105,7 +2117,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138008" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321826355" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2267,7 +2279,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138139" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321826355" />
       </method>
     </configuration>
     <list size="1">
@@ -2714,21 +2726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Imageutils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="285" column="33" lean-forward="true" selection-start-line="285" selection-start-column="33" selection-end-line="285" selection-end-column="33" />
-          <folding>
-            <element signature="e#11797#12161#0" expanded="true" />
-            <element signature="e#12160#12161#0" expanded="true" />
-            <element signature="e#12841#13289#0" expanded="true" />
-            <element signature="e#13288#13289#0" expanded="true" />
-            <element signature="e#14362#14795#0" expanded="true" />
-            <element signature="e#14794#14795#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Login_Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -2795,6 +2792,14 @@
             <element signature="e#5222#5484#0" expanded="true" />
             <element signature="e#5483#5484#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Imageutils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="616" column="76" lean-forward="false" selection-start-line="616" selection-start-column="76" selection-end-line="616" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>

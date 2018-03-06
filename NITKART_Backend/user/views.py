@@ -182,5 +182,5 @@ class GetProducts(APIView):
             urlList = []
             for product in products:
                 urlList.append(str(product.image))
-            return Response(urlList)
+            return Response(str(urlList))
         return Response({'Error' : 'No Ads Posted'})
