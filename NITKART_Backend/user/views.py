@@ -16,15 +16,19 @@ from .serializers import UserSerializer, ProductSerializer, ImageSerializer
 class UserView(APIView):
 
     def get(self, request):
-        items = Images.objects.all()
-        serializer = ImageSerializer(items, many=True)
+        # items = Images.objects.all()
+        # serializer = ImageSerializer(items, many=True)
+        # return Response(serializer.data)
+        products = Products.objects.all()
+        serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
     def delete(self, request):
         Images.objects.filter(id=1).delete()
         Images.objects.filter(id=2).delete()
         Images.objects.filter(id=3).delete()
-        return Response({'suc' : 'succ'})
+        return Response({'suc': 'succ'})
+
 
 class Register(APIView):
 
@@ -149,6 +153,26 @@ class Imageget(APIView):
             if serializer.is_valid():
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# class Home(APIView):
-#
-#     def get(self, request):
+
+class PostAd(APIView):
+
+    def post(self, request):
+        email_id = request.POST.get('seller_email')
+        user = Users.objects.get(email_id = email_id)
+        if user:
+            serializer = ProductSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                print(serializer)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response({'Error' : 'User with email id ' + email_id + ' not found'}, status.HTTP_404_NOT_FOUND)
+
+class GetProducts(APIView):
+
+    def post(self, request):
+        seller_email = request.POST.get('seller_email')
+        products = Products.objects.filter(seller_email = seller_email)
+        resp = ""
+        for product in products:
+            resp += '/media/' + str(product.image) + ', '
+        return Response({'Success' : resp})

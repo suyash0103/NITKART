@@ -1,6 +1,7 @@
 package com.example.android.nitkart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -64,6 +65,8 @@ public class SellFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Intent intent=new Intent(getContext(),SellActivity.class);
+        startActivity(intent);
         return inflater.inflate(R.layout.fragment_sell, container, false);
     }
 
@@ -79,7 +82,7 @@ public class SellFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-       }
+        }
 // else {
 //            throw new RuntimeException(context.toString()
 //                    + " must implement OnFragmentInteractionListener");

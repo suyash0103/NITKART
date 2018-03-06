@@ -2,7 +2,9 @@ package com.example.android.nitkart;
 //do not use
 //import android.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,11 +12,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class BottomNavigation extends AppCompatActivity {
     private ActionBar toolbar;
     Fragment storeFragment;
     Fragment fragment;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +49,10 @@ public class BottomNavigation extends AppCompatActivity {
                     return true;
                 case R.id.navigation_cart:
                     toolbar.setTitle("Sell");
-                    fragment = new SellFragment();
-                    loadFragment(fragment);
+//                    fragment = new SellFragment();
+//                    loadFragment(fragment);
+                    Intent intent=new Intent(getApplicationContext(),SellActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_profile:
                     toolbar.setTitle("Profile");
@@ -57,17 +63,35 @@ public class BottomNavigation extends AppCompatActivity {
             return false;
         }
     };
-
-    @Override
-    public void onBackPressed() {
-        if (fragment == storeFragment) {
-            finish();
-        } else {
-            loadFragment(storeFragment);
-            fragment = storeFragment;
-        }
-
+//
+//    @Override
+//    public void onBackPressed() {
+//        if (fragment == storeFragment) {
+//            finish();
+//        } else {
+//            loadFragment(storeFragment);
+//            fragment = storeFragment;
+//        }
+//
+//    }
+@Override
+public void onBackPressed() {
+    if (doubleBackToExitPressedOnce) {
+        finish();
+        return;
     }
+
+    this.doubleBackToExitPressedOnce = true;
+    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+    new Handler().postDelayed(new Runnable() {
+
+        @Override
+        public void run() {
+            doubleBackToExitPressedOnce=false;
+        }
+    }, 2000);
+}
 
     private void loadFragment(Fragment fragment) {
         // load fragment

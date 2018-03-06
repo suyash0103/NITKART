@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bgBottomNavigation"
     tools:context="com.example.android.nitkart.SplashScreen">
 
     <RelativeLayout
@@ -50,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
-                android:src="@drawable/van" />
+                android:src="@drawable/cart" />
         </FrameLayout>
     </RelativeLayout>
 

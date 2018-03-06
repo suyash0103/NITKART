@@ -5,9 +5,14 @@
     tools:context="com.example.android.nitkart.SellFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Sell fragment" />
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ph_add_image" />
+
 
 </FrameLayout>

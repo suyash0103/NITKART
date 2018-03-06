@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/myDark">
+    android:background="@color/myAppTheme">
 
     <TextView
         android:layout_width="fill_parent"

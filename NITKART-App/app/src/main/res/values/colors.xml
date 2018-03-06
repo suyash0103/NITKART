@@ -8,7 +8,7 @@
     <color name="background_color">#009688</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="white_greyish">#EEEEEE</color>
+    <color name="white_greyish">#c6c6c6</color>
     <color name="button_selectorcolor">#9E9E9E</color>
-    <color name="myDark">#494848</color>
+    <color name="myAppTheme">#de4031</color>
 </resources>

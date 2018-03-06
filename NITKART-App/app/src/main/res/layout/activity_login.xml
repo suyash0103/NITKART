@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--tools:context="com.example.android.nitkart.LoginActivity">-->
+<?xml version="1.0" encoding="utf-8"?>
 
-<!--</LinearLayout>-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/myDark"
+    android:background="@color/myAppTheme"
     android:padding="20dp">
 
     <LinearLayout
@@ -128,7 +127,7 @@
         android:gravity="center"
         android:padding="5dp"
         android:text="@string/newUser"
-        android:textColor="@color/white"
+        android:textColor="#0000ff"
         android:textSize="15sp" />
 
 

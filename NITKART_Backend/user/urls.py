@@ -28,6 +28,12 @@ urlpatterns = [
     # /user/test/
     url(r'test/$', views.Imageget.as_view(), name = 'image'),
 
+    # user/post_ad
+    url(r'postAd/$', views.PostAd.as_view(), name='postAd'),
+
+    # user/getProducts
+    url(r'getProducts/$', views.GetProducts.as_view(), name='GetProducts'),
+
     # user/get_auth_token
     # url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token, name='get_auth_token'),
 ]

@@ -25,7 +25,16 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string name="seller_name">Seller Name</string>
+    <string name="seller_phone">Seller Phone</string>
+    <string name="seller_room">Seller Room</string>
+    <string name="seller_email">Seller Email</string>
+    <string name="seller_block">Seller Block</string>
+    <string name="time_period">Time in months</string>
+    <string name="product_price">Price</string>
+    <string name="sell_submit">Post Ad</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
 </resources>
