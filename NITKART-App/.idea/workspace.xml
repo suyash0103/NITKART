@@ -32,26 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login_Fragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Login_Fragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding>
-                <element signature="method#Login_Fragment#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#setListeners#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#onClick#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#checkValidation#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#signIn#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#onActivityResult#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#handleSignInResult#0;class#Login_Fragment#0" expanded="false" />
-                <element signature="method#updateUI#0;class#Login_Fragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Album.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Album.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,14 +42,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BottomNavigation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/BottomNavigation.java">
+      <file leaf-file-name="AlbumsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/AlbumsAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="413">
+              <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,53 +55,15 @@
       <file leaf-file-name="StoreFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/StoreFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="169" column="7" lean-forward="true" selection-start-line="169" selection-start-column="7" selection-end-line="169" selection-end-column="7" />
+            <state relative-caret-position="440">
+              <caret line="130" column="12" lean-forward="false" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4303#5204#0" expanded="true" />
+                <element signature="e#5203#5204#0" expanded="true" />
+                <element signature="e#5222#5484#0" expanded="true" />
+                <element signature="e#5483#5484#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SellActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-              <folding>
-                <element signature="e#1556#1715#0" expanded="true" />
-                <element signature="e#1714#1715#0" expanded="true" />
-                <element signature="e#1755#1912#0" expanded="true" />
-                <element signature="e#1911#1912#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Imageutils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Imageutils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="285" column="33" lean-forward="true" selection-start-line="285" selection-start-column="33" selection-end-line="285" selection-end-column="33" />
-              <folding>
-                <element signature="e#11797#12161#0" expanded="true" />
-                <element signature="e#12160#12161#0" expanded="true" />
-                <element signature="e#12841#13289#0" expanded="true" />
-                <element signature="e#13288#13289#0" expanded="true" />
-                <element signature="e#14362#14795#0" expanded="true" />
-                <element signature="e#14794#14795#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SellFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1909,7 +1849,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v24/text_selector.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Login_Fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/ProfileFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SignUp_Fragment.java" />
@@ -1920,6 +1859,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/AlbumsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/StoreFragment.java" />
       </list>
     </option>
@@ -2022,7 +1963,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="Nexus_5X_API_24" />
+    <property name="device.picker.selection" value="FM49SKDEMZUC4H5L" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
@@ -2116,7 +2057,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520319047453" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138008" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2164,7 +2105,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520319047453" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138008" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2326,7 +2267,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520319047453" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520321138139" />
       </method>
     </configuration>
     <list size="1">
@@ -2447,17 +2388,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_toast.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4175">
@@ -2648,17 +2578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/LoginActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SignUp.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
@@ -2828,14 +2747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Album.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/BottomNavigation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="547">
@@ -2846,12 +2757,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="12" column="59" lean-forward="false" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+          <folding>
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/AlbumsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/Album.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/StoreFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="169" column="7" lean-forward="true" selection-start-line="169" selection-start-column="7" selection-end-line="169" selection-end-column="7" />
+        <state relative-caret-position="440">
+          <caret line="130" column="12" lean-forward="false" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4303#5204#0" expanded="true" />
+            <element signature="e#5203#5204#0" expanded="true" />
+            <element signature="e#5222#5484#0" expanded="true" />
+            <element signature="e#5483#5484#0" expanded="true" />
           </folding>
         </state>
       </provider>

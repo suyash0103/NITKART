@@ -45,7 +45,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Album album = albumList.get(position);
 
-        String url = "http://10.50.17.92:8000" + album.getUrl();
+        String url = "http://10.50.16.249:8000" + album.getUrl();
         Log.v("This is the URL:", url);
         Picasso.with(mContext).load(url).into(thumbnail);
     }

@@ -115,7 +115,7 @@ public class StoreFragment extends Fragment {
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                MainActivity.domain+"/user",
+                MainActivity.domain+"/user/getProducts/",
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
