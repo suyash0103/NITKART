@@ -20,13 +20,13 @@ urlpatterns = [
     url(r'^email_id/$', views.Email.as_view(), name='email_id'),
 
     # user/profile/
-    url(r'^profile/$', views.Profile.as_view(), name='profile'),
+    # url(r'^profile/$', views.Profile.as_view(), name='profile'),
 
     # user/home/
     # url(r'^home/$', views.Home.as_view(), name='home'),
 
     # /user/test/
-    url(r'test/$', views.Imageget.as_view(), name = 'image'),
+    # url(r'test/$', views.Imageget.as_view(), name = 'image'),
 
     # user/post_ad
     url(r'postAd/$', views.PostAd.as_view(), name='postAd'),
