@@ -9,7 +9,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="596fa4e6-973c-470b-8540-5aaa6598d536" name="Default" comment="" />
+    <list default="true" id="596fa4e6-973c-470b-8540-5aaa6598d536" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellActivity.java" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,14 +47,13 @@
       <file leaf-file-name="SellActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="89" column="74" lean-forward="false" selection-start-line="89" selection-start-column="74" selection-end-line="89" selection-end-column="74" />
+            <state relative-caret-position="849">
+              <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding>
                 <element signature="e#2090#2249#0" expanded="true" />
                 <element signature="e#2248#2249#0" expanded="true" />
                 <element signature="e#2289#2446#0" expanded="true" />
                 <element signature="e#2445#2446#0" expanded="true" />
-                <element signature="e#6350#6366#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2141,7 +2142,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520520886546" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520521715068" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2189,7 +2190,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520520886546" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520521715068" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2372,7 +2373,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520520886546" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520521715068" />
       </method>
     </configuration>
     <list size="1">
@@ -2902,14 +2903,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/nitkart/SellActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="89" column="74" lean-forward="false" selection-start-line="89" selection-start-column="74" selection-end-line="89" selection-end-column="74" />
+        <state relative-caret-position="849">
+          <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
             <element signature="e#2090#2249#0" expanded="true" />
             <element signature="e#2248#2249#0" expanded="true" />
             <element signature="e#2289#2446#0" expanded="true" />
             <element signature="e#2445#2446#0" expanded="true" />
-            <element signature="e#6350#6366#0" expanded="true" />
           </folding>
         </state>
       </provider>

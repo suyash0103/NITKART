@@ -79,15 +79,16 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     public void handleSubmitButton() {
         Toast.makeText(this, "posting ad", Toast.LENGTH_SHORT)
                 .show();
-        String getSellerName, getSellerEmailId, getSellerPhone, getProductName;
-        int getTimePeriod, getSellerBlock, getSellerRoom, getProductPrice;
+        final String getSellerName, getSellerEmailId, getSellerPhone, getProductName, getProductPrice, getTimePeriod, getSellerBlock, getSellerRoom;
+//        final int getTimePeriod, getSellerBlock, getSellerRoom;
         getProductName = productName.getText().toString();
         getSellerName = sellerName.getText().toString();
         getSellerPhone = sellerPhone.getText().toString();
         getSellerEmailId = sellerEmail.getText().toString();
-        getSellerBlock = Integer.parseInt(sellerBlock.getText().toString());
-        getSellerRoom = Integer.parseInt(sellerRoom.getText().toString());
-        getTimePeriod = Integer.parseInt(timePeriod.getText().toString());
+        getSellerBlock = (sellerBlock.getText().toString());
+        getSellerRoom = (sellerRoom.getText().toString());
+        getTimePeriod = (timePeriod.getText().toString());
+        getProductPrice = productPrice.getText().toString();
 
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, postAdUrl, new Response.Listener<NetworkResponse>() {
             @Override
@@ -137,26 +138,26 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("forum_upload[forum_post_id]", "1");
+                params.put("product_name", getProductName);
+                params.put("seller_name", getSellerName);
+                params.put("seller_phone", getSellerPhone);
+                params.put("seller_email", getSellerEmailId);
+                params.put("seller_block", getSellerBlock);
+                params.put("seller_room", getSellerRoom);
+                params.put("time_period", getTimePeriod);
+                params.put("productPrice", getProductPrice);
                 return params;
             }
 
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                params.put("forum_upload[document]", new DataPart(".jpg", AppHelper.getFileDataFromDrawable(getBaseContext(), imageView.getDrawable()), "image/jpeg"));
+                params.put("image", new DataPart(getProductName, AppHelper.getFileDataFromDrawable(getBaseContext(), iv_attachment.getDrawable()), "image/jpeg"));
                 return params;
             }
 
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> params = new HashMap<String, String>();
-                Log.d("COOKIE-AFTERLOGIN-F", userToken);
-                params.put("Cookie", "remember_user_token=" + userToken);
-                return params;
-            }
         };
-        SingletonRequestQueue.getInstance(appContext).addToRequestQueue(multipartRequest);
+        SingletonRequestQueue.getInstance(SellActivity.this).addToRequestQueue(multipartRequest);
 
     }
 
