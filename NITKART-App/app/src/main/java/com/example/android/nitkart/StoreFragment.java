@@ -56,11 +56,8 @@ public class StoreFragment extends Fragment {
     Context context;
 
     ArrayList<String> images;
-
-//    final String[] userAds = {"apple", "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india",
-//            "apple", "banana", "cat", "dogc", "egg", "fish", "gun", "hello", "india", "apple",
-//            "banana", "cat", "dog", "egg", "fish", "gun", "hello", "india"};
-
+    ArrayList<String> name;
+    ArrayList<String> price;
 
     public StoreFragment() {
         // Required empty public constructor
@@ -104,6 +101,8 @@ public class StoreFragment extends Fragment {
 
         albumList = new ArrayList<>();
         images = new ArrayList<>();
+        name = new ArrayList<>();
+        price = new ArrayList<>();
         adapter = new AlbumsAdapter(getContext(), albumList);
 
 //        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -115,7 +114,7 @@ public class StoreFragment extends Fragment {
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                MainActivity.domain+"/user/getProducts/",
+                MainActivity.domain + "/user/getProducts/",
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -124,12 +123,16 @@ public class StoreFragment extends Fragment {
                             // Loop through the array elements
                             for (int i = 0; i < response.length(); i++) {
                                 // Get current json object
-                                JSONObject student = response.getJSONObject(i);
-                                String url = student.getString("image");
+                                JSONObject product = response.getJSONObject(i);
+                                String url = product.getString("image");
+                                String product_name = product.getString("product_name");
+                                String product_price = product.getString("product_price");
                                 images.add(url);
+                                name.add(product_name);
+                                price.add(product_price);
                             }
                             prepareAlbums();
-                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -188,7 +191,7 @@ public class StoreFragment extends Fragment {
     private void prepareAlbums() {
 
         for (int i = 0; i < images.size(); i++) {
-            Album a = new Album("name", 1, images.get(i));
+            Album a = new Album(name.get(i), price.get(i), images.get(i));
             albumList.add(a);
         }
 

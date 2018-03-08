@@ -5,15 +5,15 @@ package com.example.android.nitkart;
  */
 public class Album {
     private String name;
-    private int numOfSongs;
+    private String price;
     private String url;
 
     public Album() {
     }
 
-    public Album(String name, int numOfSongs, String url) {
+    public Album(String name, String price, String url) {
         this.name = name;
-        this.numOfSongs = numOfSongs;
+        this.price = price;
         this.url = url;
     }
 
@@ -21,23 +21,12 @@ public class Album {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNumOfSongs() {
-        return numOfSongs;
-    }
-
-    public void setNumOfSongs(int numOfSongs) {
-        this.numOfSongs = numOfSongs;
+    public String getPrice() {
+        return price;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
 }

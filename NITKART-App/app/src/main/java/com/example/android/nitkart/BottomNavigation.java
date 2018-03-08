@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 public class BottomNavigation extends AppCompatActivity {
     private ActionBar toolbar;
-    Fragment storeFragment;
-    Fragment fragment;
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -31,9 +29,7 @@ public class BottomNavigation extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         toolbar.setTitle("Store");
-        fragment = new StoreFragment();
-        storeFragment = fragment;
-        loadFragment(storeFragment);
+        loadFragment(new StoreFragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -44,8 +40,7 @@ public class BottomNavigation extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_shop:
                     toolbar.setTitle("Store");
-                    fragment = storeFragment;
-                    loadFragment(fragment);
+                    loadFragment(new StoreFragment());
                     return true;
                 case R.id.navigation_cart:
                     toolbar.setTitle("Sell");
@@ -56,8 +51,7 @@ public class BottomNavigation extends AppCompatActivity {
                     return true;
                 case R.id.navigation_profile:
                     toolbar.setTitle("Profile");
-                    fragment = new ProfileFragment();
-                    loadFragment(fragment);
+                    loadFragment(new ProfileFragment());
                     return true;
             }
             return false;

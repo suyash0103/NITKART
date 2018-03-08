@@ -36,8 +36,7 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     private Bitmap bitmap;
     private String file_name;
     Button submitBtn;
-    String domain = "httlp://10.50.16.246/user/";
-    String postAdUrl = domain + "/postAd/";
+    String postAdUrl = MainActivity.domain + "/user/postAd/";
 
     Imageutils imageutils;
 
@@ -150,14 +149,14 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
                 params.put("seller_block", getSellerBlock);
                 params.put("seller_room", getSellerRoom);
                 params.put("time_period", getTimePeriod);
-                params.put("productPrice", getProductPrice);
+                params.put("product_price", getProductPrice);
                 return params;
             }
 
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                params.put("image", new DataPart(getProductName, AppHelper.getFileDataFromDrawable(getBaseContext(), iv_attachment.getDrawable()), "image/jpeg"));
+                params.put("image", new DataPart(getProductName + ".jpg", AppHelper.getFileDataFromDrawable(getBaseContext(), iv_attachment.getDrawable()), "image/jpeg"));
                 return params;
             }
         };

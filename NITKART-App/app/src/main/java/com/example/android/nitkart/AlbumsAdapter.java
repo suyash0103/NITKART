@@ -17,6 +17,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
     private Context mContext;
     private List<Album> albumList;
     public ImageView thumbnail;
+    TextView priceView, nameView;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
@@ -25,6 +26,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            priceView = (TextView) view.findViewById(R.id.product_price);
+            nameView = (TextView) view.findViewById(R.id.product_name);
         }
     }
 
@@ -44,10 +47,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Album album = albumList.get(position);
-
-        String url = "http://10.50.16.249:8000" + album.getUrl();
+        String url = MainActivity.domain + album.getUrl();
         Log.v("This is the URL:", url);
         Picasso.with(mContext).load(url).into(thumbnail);
+        nameView.setText(album.getName());
+        priceView.setText(album.getPrice());
     }
 
     @Override
