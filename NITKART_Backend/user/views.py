@@ -3,8 +3,10 @@ from django.http import JsonResponse, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.contrib.auth.hashers import make_password
 
-from .models import Users, Products, Images
+
+from .models import User, Products, Images
 from .serializers import UserSerializer, ProductSerializer, ImageSerializer
 
 
@@ -33,33 +35,45 @@ class UserView(APIView):
 class Register(APIView):
 
     def post(self, request):
+        print ("HEYYLO")
         username = request.data['username']
         password = request.data['password']
         email_id = request.data['email_id']
         phone_number = request.data['phone_number']
+        # password = make_password(password)
+        # print ("this is the password" + password)
 
-        if Users.objects.filter(username=username).exists():
+        if User.objects.filter(username=username).exists():
             return Response({'Error': 'Username already exists'})
-        elif Users.objects.filter(email_id=email_id).exists():
-            user = Users.objects.get(email_id=email_id)
+        elif User.objects.filter(email_id=email_id).exists():
+            user = User.objects.get(email_id=email_id)
             if user.username:
                 return Response({'Error': 'User already exists'})
             else:
                 user.username = username
-                user.password = password
+                hashed_password = make_password(password)
+                user.password = hashed_password
                 user.phone_number = phone_number
                 user.save()
                 return Response({
                     'Success': 'Account linked with ' + user.email_id + '. Username set as ' + user.username + '. Password set as ' + user.password})
-        elif Users.objects.filter(phone_number=phone_number).exists():
+        elif User.objects.filter(phone_number=phone_number).exists():
             return Response({'Error': 'Phone number already exists'})
 
+        user = User()
+        user.username = username
+        user.password = make_password(password=password,
+                                      salt=None,
+                                      hasher='default')
+        user.email_id = email_id
+        user.phone_number = phone_number
+        user.save()
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            # serializer.save()
             # print(serializer)
-            if serializer.save():
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            # if serializer.save():
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -71,13 +85,13 @@ class Login(APIView):
         print(username, password)
 
         try:
-            user = Users.objects.get(username=username)
+            user = User.objects.get(username=username)
             if user and user.password == password:
                 print("USER MIL GAYA!")
                 return Response({'Success': 'Logged In as ' + user.email_id}, status.HTTP_200_OK)
             elif user and user.password != password:
                 return Response({'Error': 'Username and Password dont match'})
-        except Users.DoesNotExist:
+        except User.DoesNotExist:
             return Response({'Error': 'No such user exists, Register first'})
         return JsonResponse({'Error': 'Account Disabled'})
 
@@ -88,11 +102,11 @@ class Email(APIView):
         email_id = request.POST.get('email_id')
 
         try:
-            user = Users.objects.get(email_id=email_id)
+            user = User.objects.get(email_id=email_id)
             if user:
                 return Response({'Check Successfull': 'Email Id exists' + user.email_id}, status.HTTP_200_OK)
-        except Users.DoesNotExist:
-            user = Users(email_id=email_id)
+        except User.DoesNotExist:
+            user = User(email_id=email_id)
             user.save()
             return Response({'Success': 'User Created' + user.email_id}, status.HTTP_201_CREATED)
 
@@ -104,14 +118,14 @@ class Email(APIView):
 #
 #         try:
 #             strF = ""
-#             user = Users.objects.get(email_id=email_id)
+#             user = User.objects.get(email_id=email_id)
 #             for product in Products.objects.filter(seller=user):
 #                 strF = strF + " name : " + product.seller_name + " email : " + product.seller_email + " time period : " + str(
 #                     product.time_period)
 #             if strF == "":
 #                 return Response({'Error': 'No Ads Posted'})
 #             return Response({'Success': strF})
-#         except Users.DoesNotExist:
+#         except User.DoesNotExist:
 #             return Response({'Not Found': 'Not Found'})
 
 
@@ -159,7 +173,7 @@ class PostAd(APIView):
 
     def post(self, request):
         email_id = request.POST.get('seller_email')
-        user = Users.objects.get(email_id=email_id)
+        user = User.objects.get(email_id=email_id)
         if user:
             serializer = ProductSerializer(data=request.data)
             if serializer.is_valid():

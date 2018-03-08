@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from .models import Users, Products, Images
+from .models import User, Products, Images
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Users
+        model = User
         fields = '__all__'
 
 
