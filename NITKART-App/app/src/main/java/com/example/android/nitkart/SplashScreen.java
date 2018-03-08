@@ -11,6 +11,7 @@ import com.romainpiel.shimmer.ShimmerTextView;
 public class SplashScreen extends AppCompatActivity {
     ShimmerTextView tv;
     Shimmer shimmer;
+    Thread myThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
         shimmer.start(tv);
 
 
-        Thread myThread = new Thread() {
+        myThread = new Thread() {
             @Override
             public void run() {
                 try {
@@ -29,12 +30,11 @@ public class SplashScreen extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
             }
-
         };
         myThread.start();
     }

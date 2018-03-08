@@ -37,6 +37,12 @@
             android:orientation="vertical">
 
             <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_name"
+                android:hint="Name, eg: bicycle, phone..."/>
+
+            <EditText
                 android:id="@+id/seller_name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
