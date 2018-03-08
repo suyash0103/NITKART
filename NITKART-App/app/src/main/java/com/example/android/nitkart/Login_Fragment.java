@@ -52,7 +52,6 @@ import java.util.regex.Pattern;
 
 public class Login_Fragment extends Fragment implements OnClickListener {
     private static View view;
-
     private static EditText emailid, password;
     private static Button loginButton;
     private static TextView forgotPassword, signUp;
@@ -60,7 +59,6 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     private static LinearLayout loginLayout;
     private static Animation shakeAnimation;
     private static FragmentManager fragmentManager;
-
     String domain =MainActivity.domain;
     private ProgressDialog mProgress;
     String loginUrl = domain + "/user/login/";

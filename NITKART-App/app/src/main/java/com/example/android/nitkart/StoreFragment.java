@@ -1,6 +1,7 @@
 package com.example.android.nitkart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -97,7 +98,7 @@ public class StoreFragment extends Fragment {
         context = getContext();
 
         View view = inflater.inflate(R.layout.fragment_store, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView =  view.findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
         images = new ArrayList<>();
@@ -142,6 +143,9 @@ public class StoreFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
+
+//                        Intent intent = new Intent(getContext(), NoInternetActivity.class);
+//                        startActivity(intent);
                     }
                 }
         );

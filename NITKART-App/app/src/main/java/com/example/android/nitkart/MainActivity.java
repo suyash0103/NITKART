@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static FragmentManager fragmentManager;
-    public static String domain = "http://10.50.17.166:8000";
+    public static String domain = "http:/10.50.17.211:8000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         // Find the tag of signup and forgot password fragment
         Fragment SignUp_Fragment = fragmentManager
                 .findFragmentByTag(Utils.SignUp_Fragment);
@@ -58,6 +57,5 @@ public class MainActivity extends AppCompatActivity {
             System.exit(0);
         }
     }
-
 
 }

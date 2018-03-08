@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,8 +38,8 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     private String file_name;
     Button submitBtn;
     String postAdUrl = MainActivity.domain + "/user/postAd/";
-
     Imageutils imageutils;
+    public ActionBar toolbar;
 
     public EditText sellerName, sellerEmail, sellerPhone, sellerBlock, sellerRoom, timePeriod, productPrice, productName;
 
@@ -46,6 +47,12 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
+
+
+
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Sell");
+
         imageutils = new Imageutils(this);
 
         productName = findViewById(R.id.product_name);
@@ -186,4 +193,10 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
         imageutils.createImage(file, filename, path, false);
     }
 
+    public void onBackPressed(){
+        Intent intent = new Intent(SellActivity.this, BottomNavigation.class);
+        startActivity(intent);
+        finish();
+        toolbar = getSupportActionBar();
+    }
 }

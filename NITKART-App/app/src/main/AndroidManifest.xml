@@ -30,6 +30,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".BottomNavigation" />
         <activity android:name=".SellActivity" />
+        <activity android:name=".NoInternetActivity"></activity>
     </application>
 
 </manifest>

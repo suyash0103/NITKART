@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class BottomNavigation extends AppCompatActivity {
-    private ActionBar toolbar;
+    public ActionBar toolbar;
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -43,11 +43,11 @@ public class BottomNavigation extends AppCompatActivity {
                     loadFragment(new StoreFragment());
                     return true;
                 case R.id.navigation_cart:
-                    toolbar.setTitle("Sell");
 //                    fragment = new SellFragment();
 //                    loadFragment(fragment);
                     Intent intent=new Intent(getApplicationContext(),SellActivity.class);
                     startActivity(intent);
+                    finish();
                     return true;
                 case R.id.navigation_profile:
                     toolbar.setTitle("Profile");

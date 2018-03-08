@@ -2,13 +2,31 @@ package com.example.android.nitkart;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,6 +43,10 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private RecyclerView recyclerView;
+    private AlbumsAdapter adapter;
+    private List<Album> albumList;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -32,6 +54,11 @@ public class ProfileFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     Button signOut;
 
+    ArrayList<String> images;
+    ArrayList<String> name;
+    ArrayList<String> price;
+
+    Context context;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -67,7 +94,17 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        context = getContext();
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+
+        albumList = new ArrayList<>();
+        images = new ArrayList<>();
+        name = new ArrayList<>();
+        price = new ArrayList<>();
+        adapter = new AlbumsAdapter(getContext(), albumList);
+
+        // LogOut Button
         signOut = view.findViewById(R.id.signOut);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +112,119 @@ public class ProfileFragment extends Fragment {
                 signOut();
             }
         });
+
+        // User's Ads
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                MainActivity.domain + "/user/getProducts/",
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            // Loop through the array elements
+                            for (int i = 0; i < response.length(); i++) {
+                                // Get current json object
+                                JSONObject product = response.getJSONObject(i);
+                                String url = product.getString("image");
+                                String product_name = product.getString("product_name");
+                                String product_price = product.getString("product_price");
+                                images.add(url);
+                                name.add(product_name);
+                                price.add(product_price);
+                            }
+                            prepareAlbums();
+//                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
+
+//                        Intent intent = new Intent(getContext(), NoInternetActivity.class);
+//                        startActivity(intent);
+                    }
+                }
+        );
+        SingletonRequestQueue.getInstance(context).addToRequestQueue(jsonArrayRequest);
+
+
+
+
         // Inflate the layout for this fragment
         return view;
+    }
+
+
+    /**
+     * Adding few albums for testing
+     */
+    private void prepareAlbums() {
+
+        for (int i = 0; i < images.size(); i++) {
+            Album a = new Album(name.get(i), price.get(i), images.get(i));
+            albumList.add(a);
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
+
+    /**
+     * RecyclerView item decoration - give equal margin around grid item
+     */
+    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int spanCount;
+        private int spacing;
+        private boolean includeEdge;
+
+        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+            this.spanCount = spanCount;
+            this.spacing = spacing;
+            this.includeEdge = includeEdge;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            int position = parent.getChildAdapterPosition(view); // item position
+            int column = position % spanCount; // item column
+
+            if (includeEdge) {
+                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
+                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+
+                if (position < spanCount) { // top edge
+                    outRect.top = spacing;
+                }
+                outRect.bottom = spacing; // item bottom
+            } else {
+                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
+                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
+                if (position >= spanCount) {
+                    outRect.top = spacing; // item top
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Converting dp to pixel
+     */
+    private int dpToPx(int dp) {
+        Resources r = getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
