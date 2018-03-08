@@ -1,5 +1,6 @@
 package com.example.android.nitkart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -40,6 +41,7 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     String postAdUrl = MainActivity.domain + "/user/postAd/";
     Imageutils imageutils;
     public ActionBar toolbar;
+    ProgressDialog progressBar;
 
     public EditText sellerName, sellerEmail, sellerPhone, sellerBlock, sellerRoom, timePeriod, productPrice, productName;
 
@@ -47,8 +49,6 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
-
-
 
         toolbar = getSupportActionBar();
         toolbar.setTitle("Sell");
@@ -63,6 +63,7 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
         sellerRoom = findViewById(R.id.seller_room);
         timePeriod = findViewById(R.id.time_period);
         productPrice = findViewById(R.id.price);
+        progressBar = new ProgressDialog(this);
 
 
         iv_attachment = findViewById(R.id.imageViewAttach);
@@ -83,8 +84,15 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
     }
 
     public void handleSubmitButton() {
-        Toast.makeText(this, "posting ad", Toast.LENGTH_SHORT)
-                .show();
+//        Toast.makeText(this, "posting ad", Toast.LENGTH_SHORT)
+//                .show();
+        progressBar.setCancelable(false);//you can cancel it by pressing back button
+        progressBar.setMessage("Posting Ad ...");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressBar.setProgress(0);//initially progress is 0
+//        progressBar.setMax(100);//sets the maximum value 100
+        progressBar.show();//displays the progress bar
+
         final String getSellerName, getSellerEmailId, getSellerPhone, getProductName, getProductPrice, getTimePeriod, getSellerBlock, getSellerRoom;
         getProductName = productName.getText().toString();
         getSellerName = sellerName.getText().toString();
@@ -106,6 +114,7 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
             public void onResponse(NetworkResponse response) {
                 String resultResponse = new String(response.data);
                 Toast.makeText(SellActivity.this, resultResponse, Toast.LENGTH_LONG).show();
+                progressBar.cancel();
             }
         }, new Response.ErrorListener() {
             @Override
