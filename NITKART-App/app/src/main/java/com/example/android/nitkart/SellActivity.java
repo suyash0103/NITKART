@@ -80,7 +80,6 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
         Toast.makeText(this, "posting ad", Toast.LENGTH_SHORT)
                 .show();
         final String getSellerName, getSellerEmailId, getSellerPhone, getProductName, getProductPrice, getTimePeriod, getSellerBlock, getSellerRoom;
-//        final int getTimePeriod, getSellerBlock, getSellerRoom;
         getProductName = productName.getText().toString();
         getSellerName = sellerName.getText().toString();
         getSellerPhone = sellerPhone.getText().toString();
@@ -89,6 +88,12 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
         getSellerRoom = (sellerRoom.getText().toString());
         getTimePeriod = (timePeriod.getText().toString());
         getProductPrice = productPrice.getText().toString();
+
+        if(getProductName.equals("") || getSellerName.equals("") || getSellerPhone.equals("") || getSellerEmailId.equals("") || getSellerBlock.equals("") || getSellerRoom.equals("") || getTimePeriod.equals("") || getProductPrice.equals(""))
+        {
+            Toast.makeText(SellActivity.this, "Enter All Fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, postAdUrl, new Response.Listener<NetworkResponse>() {
             @Override
@@ -155,7 +160,6 @@ public class SellActivity extends AppCompatActivity implements Imageutils.ImageA
                 params.put("image", new DataPart(getProductName, AppHelper.getFileDataFromDrawable(getBaseContext(), iv_attachment.getDrawable()), "image/jpeg"));
                 return params;
             }
-
         };
         SingletonRequestQueue.getInstance(SellActivity.this).addToRequestQueue(multipartRequest);
 
