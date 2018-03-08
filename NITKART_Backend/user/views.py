@@ -51,12 +51,13 @@ class Register(APIView):
                 return Response({'Error': 'User already exists'})
             else:
                 user.username = username
-                hashed_password = make_password(password)
-                user.password = hashed_password
+                user.password = make_password(password=password,
+                                              salt=None,
+                                              hasher='default')
                 user.phone_number = phone_number
                 user.save()
-                return Response({
-                    'Success': 'Account linked with ' + user.email_id + '. Username set as ' + user.username + '. Password set as ' + user.password})
+                serializer = UserSerializer(data=request.data)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
         elif User.objects.filter(phone_number=phone_number).exists():
             return Response({'Error': 'Phone number already exists'})
 
