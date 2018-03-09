@@ -12,15 +12,15 @@ class Users(models.Model):
 
 
 class Products(models.Model):
-    # seller = models.ForeignKey(Users, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.FileField(null=True, blank=True)
+    product_name = models.CharField(max_length=1000)
     seller_name = models.CharField(max_length=100)
     seller_phone = models.CharField(max_length=20)
     seller_email = models.CharField(max_length=50)
-    seller_block = models.IntegerField()
-    seller_room = models.IntegerField()
-    time_period = models.IntegerField()
-    # price = models.IntegerField()
+    seller_block = models.CharField(max_length=20)
+    seller_room = models.CharField(max_length=20)
+    time_period = models.CharField(max_length=10)
+    product_price = models.CharField(max_length=50)
 
 
 class Images(models.Model):

@@ -15,13 +15,13 @@ from .serializers import UserSerializer, ProductSerializer, ImageSerializer
 
 class UserView(APIView):
 
-    def get(self, request):
-        # items = Images.objects.all()
-        # serializer = ImageSerializer(items, many=True)
-        # return Response(serializer.data)
-        products = Products.objects.all()
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+    # def get(self, request):
+    #     # items = Images.objects.all()
+    #     # serializer = ImageSerializer(items, many=True)
+    #     # return Response(serializer.data)
+    #     products = Products.objects.all()
+    #     serializer = ProductSerializer(products, many=True)
+    #     return Response(serializer.data)
 
     def delete(self, request):
         Images.objects.filter(id=1).delete()
@@ -154,22 +154,27 @@ class Email(APIView):
 #                 return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class PostAd(APIView):
 
     def post(self, request):
         email_id = request.POST.get('seller_email')
-        user = Users.objects.get(email_id = email_id)
+        user = Users.objects.get(email_id=email_id)
         if user:
             serializer = ProductSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 print(serializer)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response({'Error' : 'User with email id ' + email_id + ' not found'}, status.HTTP_404_NOT_FOUND)
+        return Response({'Error': 'User with email id ' + email_id + ' not found'}, status.HTTP_404_NOT_FOUND)
+
 
 class GetProducts(APIView):
 
     def get(self, request):
+        # items = Images.objects.all()
+        # serializer = ImageSerializer(items, many=True)
+        # return Response(serializer.data)
         products = Products.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
@@ -184,3 +189,8 @@ class GetProducts(APIView):
                 urlList.append(str(product.image))
             return Response(str(urlList))
         return Response({'Error' : 'No Ads Posted'})
+        products = Products.objects.filter(seller_email=seller_email)
+        resp = ""
+        for product in products:
+            resp += '/media/' + str(product.image) + ', '
+        return Response({'Success': resp})
