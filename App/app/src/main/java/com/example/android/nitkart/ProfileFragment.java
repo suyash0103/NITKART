@@ -27,6 +27,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -34,6 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -155,6 +158,17 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(String response) {
                         Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                         Log.d("Response", response);
+                        GsonBuilder builder = new GsonBuilder();
+                        Gson mGson = builder.create();
+                        List<Product> posts = new ArrayList<Product>();
+                        posts = Arrays.asList(mGson.fromJson(response, Product[].class));
+                        for(Product post : posts)
+                        {
+                            images.add(post.getImage());
+                            name.add(post.getName());
+                            price.add(post.getPrice());
+                        }
+                        prepareAlbums();
                     }
                 },
                 new Response.ErrorListener() {
