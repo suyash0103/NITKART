@@ -68,6 +68,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     String myPreferences = "myPreferences";
     String emailId = "email_id";
     String passWord = "password";
+    String isLogged = "isLogged";
     String phoneNumber = "phone_number";
     SharedPreferences sharedPreferences;
 
@@ -107,8 +108,23 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                 signIn();
             }
         });
+
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
         updateUI(account);
+
+        try
+        {
+            if(sharedPreferences.getString(isLogged, null).equals("1"))
+            {
+                Intent intent = new Intent(getActivity(), BottomNavigation.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        }
+        catch(Exception e)
+        {
+            Log.v("Exception : ", e.toString());
+        }
 
         return view;
     }
@@ -242,6 +258,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString(emailId, getEmailId);
                                 editor.putString(passWord, getPassword);
+                                editor.putString(isLogged, "1");
                                 editor.commit();
                                 Intent intent = new Intent(getActivity(), BottomNavigation.class);
                                 startActivity(intent);
@@ -323,6 +340,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                                 editor.putString("password", null);
                                 editor.putString("email_id", account.getEmail());
                                 editor.putString("phone_number", null);
+                                editor.putString(isLogged, "1");
                                 String url;
                                 if (account.getPhotoUrl() != null) {
                                     url = account.getPhotoUrl().toString();
