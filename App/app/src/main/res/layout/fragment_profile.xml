@@ -1,8 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient"
     tools:context="com.example.android.nitkart.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,76 +11,73 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="15dp">
 
-        <RelativeLayout
-            android:id="@+id/logoLayout"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:padding="3dp">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:src="@drawable/ic_launcher_background" />
+        </LinearLayout>
 
-
-        </RelativeLayout>
-
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:textSize="28dp"
-            tools:ignore="InvalidId" />
-
-        <TextView
-            android:id="@+id/userEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingBottom="5dp"
-            android:textSize="16sp"
-            tools:ignore="InvalidId" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <Button
-                android:id="@+id/signOut"
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                tools:ignore="InvalidId" />
+
+            <TextView
+                android:id="@+id/userEmail"
+                android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/mybutton"
-                android:padding="15dp"
-                android:text="Log Out" />
+                android:textSize="18sp"
+                tools:ignore="InvalidId" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/signOut"
+                    android:background="@drawable/mybutton"
+                    android:padding="4dp"
+                    android:textSize="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Log Out"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
         </LinearLayout>
+
+
     </LinearLayout>
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
-        android:background="@color/white">
+        android:background="#00000000">
+            <include layout="@layout/content_main_card_view" />
+    </ScrollView>
 
-        <include layout="@layout/content_main_card_view" />
 
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

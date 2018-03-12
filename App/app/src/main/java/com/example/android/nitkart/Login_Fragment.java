@@ -126,6 +126,13 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             Log.v("Exception : ", e.toString());
         }
 
+//        if(sharedPreferences.getString(isLogged, null).equals("1"))
+//        {
+//            Intent intent = new Intent(getActivity(), BottomNavigation.class);
+//            startActivity(intent);
+//            getActivity().finish();
+//        }
+
         return view;
     }
 
