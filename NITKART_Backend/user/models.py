@@ -13,14 +13,14 @@ class User(models.Model):
 
 class Products(models.Model):
     image = models.FileField(null=True, blank=True)
-    product_name = models.CharField(max_length=1000)
-    seller_name = models.CharField(max_length=100)
-    seller_phone = models.CharField(max_length=20)
-    seller_email = models.CharField(max_length=50)
-    seller_block = models.CharField(max_length=20)
-    seller_room = models.CharField(max_length=20)
-    time_period = models.CharField(max_length=10)
-    product_price = models.CharField(max_length=50)
+    product_name = models.CharField(max_length=1000, null=True, blank=True)
+    seller_name = models.CharField(max_length=100, null=True, blank=True)
+    seller_phone = models.CharField(max_length=20, null=True, blank=True)
+    seller_email = models.CharField(max_length=50, null=True, blank=True)
+    seller_block = models.CharField(max_length=20, null=True, blank=True)
+    seller_room = models.CharField(max_length=20, null=True, blank=True)
+    time_period = models.CharField(max_length=10, null=True, blank=True)
+    product_price = models.CharField(max_length=50, null=True, blank=True)
 
 
 class Images(models.Model):

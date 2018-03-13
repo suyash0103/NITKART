@@ -187,9 +187,6 @@ class PostAd(APIView):
 class GetProducts(APIView):
 
     def get(self, request):
-        # items = Images.objects.all()
-        # serializer = ImageSerializer(items, many=True)
-        # return Response(serializer.data)
         products = Products.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
@@ -199,13 +196,43 @@ class GetProducts(APIView):
         products = Products.objects.filter(seller_email = seller_email)
         print (products)
         if products:
-            urlList = []
-            for product in products:
-                urlList.append(str(product.image))
-            return Response(str(urlList))
+        #     urlList = []
+        #     for product in products:
+        #         urlList.append(str(product.image))
+        #     return Response(str(urlList))
+            serializer = ProductSerializer(products, many=True)
+            return Response(serializer.data)
         return Response({'Error' : 'No Ads Posted'})
-        products = Products.objects.filter(seller_email=seller_email)
-        resp = ""
-        for product in products:
-            resp += '/media/' + str(product.image) + ', '
-        return Response({'Success': resp})
+
+    def patch(self, request):
+        products = Products.objects.all()
+        serializer = ProductSerializer(products, partial=True)
+        arr = []
+        arr.append(serializer.data)
+        print(arr)
+        return JsonResponse(arr, safe=False)
+
+class Delete(APIView):
+
+    def delete(self, request):
+        id = request.POST.get('id')
+        Products.objects.filter(id = id).delete()
+        return Response({'Success' : 'Deleted'})
+
+class Test(APIView):
+
+    def post(self, request):
+        id = request.POST.get('id')
+        product = Products.objects.get(id = id)
+        product.image = request.POST.get('image')
+        product.product_name = request.POST.get('product_name')
+        product.seller_name = request.POST.get('seller_name')
+        product.seller_phone = request.POST.get('seller_phone')
+        product.seller_email = request.POST.get('seller_email')
+        product.seller_block = request.POST.get('seller_block')
+        product.seller_room = request.POST.get('seller_room')
+        product.time_period = request.POST.get('time_period')
+        product.product_price = request.POST.get('product_price')
+        if product.save():
+            return Response({'Success' : 'Updated'})
+        return Response({'Error' : 'Not Updated'})
